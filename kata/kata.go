@@ -1,6 +1,10 @@
 package kata
 
 func Xor(a, b bool) bool {
-  // your code here:
-  return false
+
+	if a && !b || !a && b {
+		return true
+	}
+
+	return false
 }
