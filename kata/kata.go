@@ -1,10 +1,7 @@
 package kata
 
-func Xor(a, b bool) bool {
 
-	if a && !b || !a && b {
-		return true
-	}
-
-	return false
+func Between(a, b int) []int {
+   
+	return [] int {1} // to do
 }
