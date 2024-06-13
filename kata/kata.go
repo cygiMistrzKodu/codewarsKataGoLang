@@ -1,7 +1,11 @@
 package kata
 
-
 func Between(a, b int) []int {
-   
-	return [] int {1} // to do
+
+	var numbers []int
+	for number := a; number <= b; number++ {
+		numbers = append(numbers, number)
+	}
+
+	return numbers
 }
