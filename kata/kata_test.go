@@ -1,15 +1,24 @@
-package kata
+// TODO: replace with your own tests (TDD). An example to get you started is included below.
+// Ginkgo BDD Testing Framework <http://onsi.github.io/ginkgo/>
+// Gomega Matcher Library <http://onsi.github.io/gomega/>
+
+package kata_test
 import (
   . "github.com/onsi/ginkgo/v2"
   . "github.com/onsi/gomega"
+  . "fundamentals/kata"
 )
-var _ = Describe("Damaged but alive", func() {
-   It("Should return the correct positive value", func() {
-     Expect(combat(100.0, 50.0)).To(Equal(50.0))
-   })
-})
-var _ = Describe("Dead", func() {
-   It("Should return 0 rather than negative health", func() {
-     Expect(combat(1.0, 100)).To(Equal(0.0))
-   })
+
+func dotest(text, char, expected string) {
+     Expect(Contamination(text, char)).To(Equal(expected), "With text = \"%s\", char = \"%s\"", text, char)
+}
+
+var _ = Describe("Tests", func() {
+     It("Sample tests", func() {
+        dotest("abc","z", "zzz")
+        dotest("","z", "")
+        dotest("abc","", "")
+        dotest("_3ebzgh4","&", "&&&&&&&&")
+        dotest("//case"," ", "      ")
+     })
 })
