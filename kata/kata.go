@@ -1,17 +1,9 @@
 package kata
 
-import (
-	"strings"
-)
+func Quadratic(x1, x2 int) [3]int {
 
-func Contamination(text, char string) string {
+	c := x1 * x2
+	b := ( 1 * -x2) - (-x1 * -1)
 
-	letters := strings.Split(text, "")
-
-	for i := 0; i < len(letters); i++ {
-		letters[i] = char
-	}
-
-	return strings.Join(letters, "")
-
+	return [3]int{1, b, c}
 }

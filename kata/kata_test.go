@@ -9,16 +9,15 @@ import (
   . "fundamentals/kata"
 )
 
-func dotest(text, char, expected string) {
-     Expect(Contamination(text, char)).To(Equal(expected), "With text = \"%s\", char = \"%s\"", text, char)
+func dotest(x1, x2 int, expected [3]int) {
+     Expect(Quadratic(x1, x2)).To(Equal(expected), "With x1 = %d, x2 = %d", x1, x2)
 }
 
 var _ = Describe("Tests", func() {
      It("Sample tests", func() {
-        dotest("abc","z", "zzz")
-        dotest("","z", "")
-        dotest("abc","", "")
-        dotest("_3ebzgh4","&", "&&&&&&&&")
-        dotest("//case"," ", "      ")
+      dotest(0, 1, [3]int{1, -1, 0})
+      dotest(4, 9, [3]int{1, -13, 36})
+      dotest(2, 6, [3]int{1, -8, 12})
+      dotest(-5, -4, [3]int{1, 9, 20})
      })
 })
