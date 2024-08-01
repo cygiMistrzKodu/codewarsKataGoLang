@@ -1,9 +1,19 @@
 package kata
 
-func Quadratic(x1, x2 int) [3]int {
+func EachCons(arr []int, n int) [][]int {
 
-	c := x1 * x2
-	b := ( 1 * -x2) - (-x1 * -1)
+	subsets := [][]int{}
 
-	return [3]int{1, b, c}
+	for index := range arr {
+
+		if index+n > len(arr) {
+			break
+		}
+
+		groupSet := arr[index : index+n]
+		subsets = append(subsets, groupSet)
+
+	}
+
+	return subsets
 }
