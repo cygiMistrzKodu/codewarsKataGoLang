@@ -5,14 +5,23 @@ import (
 )
 
 func MaxRot(n int64) int64 {
-   str := strconv.FormatInt(n, 10)
    max := n
-   
-   for i := 0; i<len(str)-1 ; i++ {
-     str = str[:i]+str[i+1:]+string(str[i])
-     num, _:= strconv.ParseInt(str, 10, 64)
-     if max < num { max = num }
-   }
-   
-   return max
+	strn := strconv.FormatInt(n, 10)
+
+	var left string
+	var middle string
+	var right string
+	var currentNumber int64
+
+	for index := range strn[:len(strn)-1] {
+		left = strn[:index]
+		middle = strn[index:index+1]
+		right = strn[index+1:]
+
+		strn = left+right+middle
+
+		currentNumber,_ = strconv.ParseInt(strn,10,64)
+		if max < currentNumber {max = currentNumber}
+		}
+	return max
 }
