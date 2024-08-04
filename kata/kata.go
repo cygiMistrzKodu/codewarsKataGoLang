@@ -1,27 +1,20 @@
 package kata
 
 import (
-	"strconv"
+	"time"
 )
 
-func MaxRot(n int64) int64 {
-   max := n
-	strn := strconv.FormatInt(n, 10)
+func UnluckyDays(year int) int {
 
-	var left string
-	var middle string
-	var right string
-	var currentNumber int64
-
-	for index := range strn[:len(strn)-1] {
-		left = strn[:index]
-		middle = strn[index:index+1]
-		right = strn[index+1:]
-
-		strn = left+right+middle
-
-		currentNumber,_ = strconv.ParseInt(strn,10,64)
-		if max < currentNumber {max = currentNumber}
+	fridays13InYear := 0
+	for month := time.January; month <= time.December; month++ {
+		thirteenthDay := time.Date(year, month, 13, 0, 0, 0, 0, time.UTC)
+		
+		if thirteenthDay.Weekday() == time.Friday {
+			fridays13InYear++
 		}
-	return max
+
+	}
+
+	return fridays13InYear
 }
