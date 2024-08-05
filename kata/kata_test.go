@@ -1,7 +1,3 @@
-// TODO: replace with your own tests (TDD). An example to get you started is included below.
-// Ginkgo BDD Testing Framework <http://onsi.github.io/ginkgo/>
-// Gomega Matcher Library <http://onsi.github.io/gomega/>
-
 package kata_test
 import (
   . "github.com/onsi/ginkgo/v2"
@@ -9,13 +5,13 @@ import (
   . "fundamentals/kata"
 )
 
-func dotest(s, expected string) {
-     Expect(RakeGarden(s)).To(Equal(expected), "With garden = \"%s\"", s)
-}
 
 var _ = Describe("Tests", func() {
      It("Sample tests", func() {
-       dotest("slug spider rock gravel gravel gravel gravel gravel gravel gravel", "gravel gravel rock gravel gravel gravel gravel gravel gravel gravel")
-       dotest("gravel gravel gravel gravel gravel gravel gravel gravel gravel rock slug ant gravel gravel snail rock gravel gravel gravel gravel gravel gravel gravel slug gravel ant gravel gravel gravel gravel rock slug gravel gravel gravel gravel gravel snail gravel gravel rock gravel snail slug gravel gravel spider gravel gravel gravel gravel gravel gravel gravel gravel moss gravel gravel gravel snail gravel gravel gravel ant gravel gravel moss gravel gravel gravel gravel snail gravel gravel gravel gravel slug gravel rock gravel gravel rock gravel gravel gravel gravel snail gravel gravel rock gravel gravel gravel gravel gravel spider gravel rock gravel gravel", "gravel gravel gravel gravel gravel gravel gravel gravel gravel rock gravel gravel gravel gravel gravel rock gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel rock gravel gravel gravel gravel gravel gravel gravel gravel gravel rock gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel gravel rock gravel gravel rock gravel gravel gravel gravel gravel gravel gravel rock gravel gravel gravel gravel gravel gravel gravel rock gravel gravel")
+       Expect(Incrementer([]int{})).To(BeEmpty())
+       Expect(Incrementer([]int{1, 2, 3})).To(Equal([]int{2, 4, 6}))
+       Expect(Incrementer([]int{4, 6, 7, 1, 3})).To(Equal([]int{5, 8, 0, 5, 8}))
+       Expect(Incrementer([]int{3, 6, 9, 8, 9})).To(Equal([]int{4, 8, 2, 2, 4}))
+       Expect(Incrementer([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 8})).To(Equal([]int{2, 4, 6, 8, 0, 2, 4, 6, 8, 9, 0, 1, 2, 2}))
      })
 })
