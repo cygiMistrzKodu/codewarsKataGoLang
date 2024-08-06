@@ -4,14 +4,10 @@ import (
   . "github.com/onsi/gomega"
   . "fundamentals/kata"
 )
-
-
-var _ = Describe("Tests", func() {
-     It("Sample tests", func() {
-       Expect(Incrementer([]int{})).To(BeEmpty())
-       Expect(Incrementer([]int{1, 2, 3})).To(Equal([]int{2, 4, 6}))
-       Expect(Incrementer([]int{4, 6, 7, 1, 3})).To(Equal([]int{5, 8, 0, 5, 8}))
-       Expect(Incrementer([]int{3, 6, 9, 8, 9})).To(Equal([]int{4, 8, 2, 2, 4}))
-       Expect(Incrementer([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 8})).To(Equal([]int{2, 4, 6, 8, 0, 2, 4, 6, 8, 9, 0, 1, 2, 2}))
-     })
+var _ = Describe("basic tests", func() {
+    It("Testing for attitude", func() { Expect(WordsToMarks("attitude")).To(Equal(100)) })
+    It("Testing for friends", func() { Expect(WordsToMarks("friends")).To(Equal(75)) })
+    It("Testing for family", func() { Expect(WordsToMarks("family")).To(Equal(66)) })
+    It("Testing for selfness", func() { Expect(WordsToMarks("selfness")).To(Equal(99)) })
+    It("Testing for knowledge", func() { Expect(WordsToMarks("knowledge")).To(Equal(96)) })
 })
