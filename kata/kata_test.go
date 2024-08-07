@@ -1,13 +1,25 @@
 package kata_test
+
 import (
-  . "github.com/onsi/ginkgo/v2"
-  . "github.com/onsi/gomega"
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
   . "fundamentals/kata"
+  "testing"
 )
-var _ = Describe("basic tests", func() {
-    It("Testing for attitude", func() { Expect(WordsToMarks("attitude")).To(Equal(100)) })
-    It("Testing for friends", func() { Expect(WordsToMarks("friends")).To(Equal(75)) })
-    It("Testing for family", func() { Expect(WordsToMarks("family")).To(Equal(66)) })
-    It("Testing for selfness", func() { Expect(WordsToMarks("selfness")).To(Equal(99)) })
-    It("Testing for knowledge", func() { Expect(WordsToMarks("knowledge")).To(Equal(96)) })
+
+func TestDominator(t *testing.T) {
+	RegisterFailHandler(Fail)
+}
+
+var _ = Describe("What dominates your array?", func() {
+
+	Context("Fixed tests", func() {
+		It("should pass fixed tests", func() {
+			Expect(Dominator([]int{3, 4, 3, 2, 3, 1, 3, 3})).To(Equal(3))
+			Expect(Dominator([]int{1, 2, 3, 4, 5})).To(Equal(-1))
+			Expect(Dominator([]int{1, 1, 1, 2, 2, 2})).To(Equal(-1))
+			Expect(Dominator([]int{1, 1, 1, 2, 2, 2, 2})).To(Equal(2))
+		})
+	})
+
 })
