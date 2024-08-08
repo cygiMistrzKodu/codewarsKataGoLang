@@ -1,25 +1,21 @@
 package kata_test
-
 import (
-	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
+  . "github.com/onsi/ginkgo/v2"
+  . "github.com/onsi/gomega"
   . "fundamentals/kata"
-  "testing"
+  
 )
 
-func TestDominator(t *testing.T) {
-	RegisterFailHandler(Fail)
+func dotest(l, w, h float64, exp string) {
+    var ans = WallPaper(l, w, h)
+    Expect(ans).To(Equal(exp))
 }
 
-var _ = Describe("What dominates your array?", func() {
+var _ = Describe("Tests WallPaper", func() {
 
-	Context("Fixed tests", func() {
-		It("should pass fixed tests", func() {
-			Expect(Dominator([]int{3, 4, 3, 2, 3, 1, 3, 3})).To(Equal(3))
-			Expect(Dominator([]int{1, 2, 3, 4, 5})).To(Equal(-1))
-			Expect(Dominator([]int{1, 1, 1, 2, 2, 2})).To(Equal(-1))
-			Expect(Dominator([]int{1, 1, 1, 2, 2, 2, 2})).To(Equal(2))
-		})
-	})
-
+    It("should handle basic cases", func() {
+        dotest(6.3, 4.5, 3.29, "sixteen")        
+        dotest(6.3, 5.8, 3.13, "seventeen")
+        dotest(0.0, 5.4, 3.33, "zero")
+    })
 })
