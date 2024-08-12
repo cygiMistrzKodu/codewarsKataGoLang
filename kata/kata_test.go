@@ -1,24 +1,79 @@
 package kata_test
 
 import (
-  . "github.com/onsi/ginkgo/v2"
-  . "github.com/onsi/gomega"
-  . "fundamentals/kata"
-  "fmt"
+    . "github.com/onsi/ginkgo/v2"
+    . "github.com/onsi/gomega"
+    . "fundamentals/kata"
 )
 
-func doTest(n int, expected int) {
-  It(fmt.Sprintf("n = %d", n), func() {
-    Expect(NextHigher(n)).To(Equal(expected))
-  })
-}
-
-var _ = Describe("Testing NextHigher", func() {
-  Context("Basic tests", func() {
-    doTest(1022, 1279)
-    doTest(128, 256)
-    doTest(1, 2)
-    doTest(127, 191)
-    doTest(1253343, 1253359)
-  })
+var _ = Describe("5 Example Tests",func() {
+    example_tests := [...][]string{
+        {
+            "000001",
+            "010010",
+            "101001",
+            "010100",
+            "001010",
+            "010000",
+            "100010",
+            "010100",
+        },
+        {
+            "01000100",
+            "00101000",
+            "01010101",
+            "10000000",
+            "10000100",
+            "10001000",
+            "00001010",
+            "01001000",
+        },
+        {
+            "00000100",
+            "01000101",
+            "00001001",
+            "10000010",
+            "01001000",
+            "00101010",
+            "10001010",
+            "10101001",
+        },
+        {
+            "00010000",
+            "10000100",
+            "10100010",
+            "10010100",
+            "10101001",
+            "01000000",
+            "01000100",
+            "00100001",
+            "00000100",
+            "01000010",
+        },
+        {
+            "0010001010",
+            "1001000000",
+            "0100010010",
+            "0101001000",
+            "0100100001",
+            "1001001010",
+            "0100101010",
+            "1001001000",
+            "1000101001",
+            "0001000100",
+        },
+    }
+    example_solutions := [...][]int{
+        {6,3,2,1,0,5,4},
+        {3,2,0,6,4,1,8,5,7},
+        {2,1,0,3,5,4,7,8,6},
+        {0,4,1,3,7,2,5,6,8},
+        {3,0,1,2,4,7,6,8,5,9,10},
+    }
+    
+    for i,v := range example_tests {
+        user := Amidakuji(v)
+        sol := example_solutions[i]
+        It("",func() {Expect(user).To(Equal(sol))})
+    }
 })
